@@ -9,10 +9,19 @@ window.addEventListener('DOMContentLoaded', () => {
             links.forEach(link => {
                 const songName = link.href.split('/').pop().replace('.txt', '');
                 const listItem = document.createElement('li');
-                const anchor = document.createElement('a');
-                anchor.href = link.href;
-                anchor.textContent = songName;
-                listItem.appendChild(anchor);
+                const songTitle = document.createElement('h2');
+                const preElement = document.createElement('pre');
+                
+                songTitle.textContent = songName;
+                
+                fetch(link.href)
+                    .then(response => response.text())
+                    .then(songContent => {
+                        preElement.innerHTML = songContent;
+                    });
+                
+                listItem.appendChild(songTitle);
+                listItem.appendChild(preElement);
                 songList.appendChild(listItem);
             });
         });
