@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
     const songList = document.getElementById('song-list');
   
-    // Function to fetch songs from a specific folder
-    const fetchSongsFromFolder = (folder) => {
-      return fetch(`./songs/${folder}`)
+    // Function to fetch songs from the songs folder
+    const fetchSongs = () => {
+      return fetch('./songs')
         .then(response => response.text())
         .then(text => {
           const parser = new DOMParser();
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
           links.forEach(link => {
             const songName = link.href.split('/').pop().replace('.txt', '');
-            const songURL = `./songs/${folder}/${link.href.split('/').pop()}`;
+            const songURL = `./songs/${link.href.split('/').pop()}`;
             songs.push({ name: songName, url: songURL });
           });
   
@@ -21,17 +21,10 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     };
   
-    // Fetch songs from the root level
-    const fetchRootSongs = fetchSongsFromFolder('');
-  
-    // Fetch songs from the 'folder' subdirectory
-    const fetchFolderSongs = fetchSongsFromFolder('folder');
-  
-    // Combine and display all songs
-    Promise.all([fetchRootSongs, fetchFolderSongs])
-      .then(responses => {
-        const allSongs = responses.flat();
-        allSongs.forEach(song => {
+    // Fetch songs from the songs folder
+    fetchSongs()
+      .then(songs => {
+        songs.forEach(song => {
           const listItem = document.createElement('li');
           const songTitle = document.createElement('h2');
           const preElement = document.createElement('pre');
