@@ -8,12 +8,13 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(text => {
           const parser = new DOMParser();
           const html = parser.parseFromString(text, 'text/html');
-          const links = html.querySelectorAll('a');
+          const links = Array.from(html.querySelectorAll('a'))
+            .map(link => link.getAttribute('href'));
           const songs = [];
   
           links.forEach(link => {
-            const songName = link.href.split('/').pop().replace('.txt', '');
-            const songURL = `./songs/${link.href.split('/').pop()}`;
+            const songName = link.split('/').pop().replace('.txt', '');
+            const songURL = `./songs/${link}`;
             songs.push({ name: songName, url: songURL });
           });
   
