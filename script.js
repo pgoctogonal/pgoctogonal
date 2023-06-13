@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
           const preElement = document.createElement('pre');
   
           songTitle.textContent = song.name;
-  
+          console.log(song.url)
           fetch(song.url)
             .then(response => response.text())
             .then(songContent => {
