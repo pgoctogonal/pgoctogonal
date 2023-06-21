@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // List of all songs
   let songs = [
     "Maranata - Ministerio Avivah",
-    "Te Agradeco - Diante do Trono"
+    "Te Agradeco - Diante do Trono",
+    "Mais Que Uma Voz - Kleber Lucas"
   ];
 
   let songList = document.getElementById('songList');
