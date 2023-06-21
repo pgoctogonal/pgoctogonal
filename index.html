@@ -1,33 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Song Chords</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/6557910803.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Song Chords</h1>
-    <ul id="song-list">
-        <li>
-            <h2>Song Title 1</h2>
-            <pre>
-                Chords: [C] [G] [Am] [F]
-
-Lyrics:
-[C]This is the [G]lyrics of the [Am]song
-[F]It has some [C]chords and [G]melody[/F][/C]
-</pre>
-</li>
-<li>
-<h2>Song Title 2</h2>
-<pre>
-Chords: [D] [A] [Bm] [G]
-
-Lyrics:
-[D]Another [A]song with [Bm]chords
-[G]It's [D]fun to play[/G][/D]
-</pre>
-</li>
-<!-- Add more songs as additional <li> elements -->
-</ul>
-<script src="script.js"></script>
+    <div id="menu-toggle">
+        <i id="menu-icon" class="fas fa-chevron-up"></i>
+    </div>
+    <div id="sidebar">
+        <div id="search-container">
+            <input type="text" id="search" placeholder="Busque a música...">
+        </div>
+        <div id="songList"></div>
+    </div>
+    <div id="songDisplay"></div>
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -1,47 +1,71 @@
-window.addEventListener('DOMContentLoaded', () => {
-    const songList = document.getElementById('song-list');
-  
-    // Function to fetch songs from the songs folder
-    const fetchSongs = () => {
-      return fetch('./songs')
-        .then(response => response.text())
-        .then(text => {
-          const parser = new DOMParser();
-          const html = parser.parseFromString(text, 'text/html');
-          const links = Array.from(html.querySelectorAll('a'))
-            .map(link => link.getAttribute('href'));
-          const songs = [];
-  
-          links.forEach(link => {
-            const songName = link.split('/').pop().replace('.txt', '');
-            const songURL = `./songs/${link}`;
-            songs.push({ name: songName, url: songURL });
-          });
-  
-          return songs;
+document.addEventListener('DOMContentLoaded', function() {
+  // List of all songs
+  let songs = [
+    "Maranata - Ministerio Avivah"
+  ];
+
+  let songList = document.getElementById('songList');
+  let songDisplay = document.getElementById('songDisplay');
+  let search = document.getElementById('search');
+
+  // Generate the song list
+  for (let i = 0; i < songs.length; i++) {
+    let songDiv = document.createElement('div');
+    songDiv.className = "song";
+    songDiv.textContent = songs[i];
+    songDiv.onclick = function() {
+      console.log(`Loading ${songs[i]}...`);  // Added console log
+      // Load song lyrics
+      fetch(`./${songs[i]}.html`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+          }
+          return response.text()
+        })
+        .then(data => {
+          console.log(`Loaded song: ${songs[i]}`);  // Added console log
+          songDisplay.innerHTML = data;
+        })
+        .catch(error => {
+          console.log(`Failed to load song: ${songs[i]}`);  // Added console log
+          console.log(error);
         });
+
+      // Highlight the active song
+      let activeSong = document.querySelector('.song.active');
+      if (activeSong) {
+        activeSong.classList.remove('active');
+      }
+      songDiv.classList.add('active');
     };
-  
-    // Fetch songs from the songs folder
-    fetchSongs()
-      .then(songs => {
-        songs.forEach(song => {
-          const listItem = document.createElement('li');
-          const songTitle = document.createElement('h2');
-          const preElement = document.createElement('pre');
-  
-          songTitle.textContent = song.name;
-          console.log(song.url)
-          fetch(song.url)
-            .then(response => response.text())
-            .then(songContent => {
-              preElement.innerHTML = songContent;
-            });
-  
-          listItem.appendChild(songTitle);
-          listItem.appendChild(preElement);
-          songList.appendChild(listItem);
-        });
-      });
+    songList.appendChild(songDiv);
+  }
+
+  // Add search functionality
+  search.oninput = function() {
+    let filter = search.value.toLowerCase();
+    let songDivs = songList.getElementsByClassName('song');
+    for (let i = 0; i < songDivs.length; i++) {
+      let songDiv = songDivs[i];
+      let songName = songs[i].toLowerCase();
+      if (songName.includes(filter)) {
+        songDiv.style.display = "";
+      } else {
+        songDiv.style.display = "none";
+      }
+    }
+  };
+
+  // Toggle sidebar visibility
+  const menuToggle = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+  const menuIcon = document.getElementById('menu-icon');
+
+  menuToggle.addEventListener('click', function() {
+    console.log('menuToggle clicked');
+    sidebar.classList.toggle('hidden');
+    menuIcon.classList.toggle('fa-chevron-right');
+    menuIcon.classList.toggle('fa-chevron-left');
   });
-  
+});
