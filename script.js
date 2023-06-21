@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   // List of all songs
   let songs = [
-    "Maranata - Ministerio Avivah"
+    "Maranata - Ministerio Avivah",
+    "Te Agradeco - Diante do Trono"
   ];
 
   let songList = document.getElementById('songList');
