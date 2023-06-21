@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     "Mais Que Uma Voz - Kleber Lucas"
   ];
 
+  songs.sort()
+
   let songList = document.getElementById('songList');
   let songDisplay = document.getElementById('songDisplay');
   let search = document.getElementById('search');
