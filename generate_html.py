@@ -2,10 +2,6 @@ import os
 
 import re
 
-import re
-
-
-import re
 def reset_section(section=None, line=0):
   if line > 0:
     print('##### ',line, section)
@@ -112,9 +108,7 @@ def main():
 
         # generate html file
         with open(f'./{song_file[:-4]}.html', 'w') as f:
-            f.write('<!DOCTYPE html>\n<html>\n<head>\n<link rel="stylesheet" type="text/css" href="style.css">\n</head>\n<body>\n')
             f.write(html_content)
-            f.write('\n</body>\n</html>')
 
 
 if __name__ == "__main__":
