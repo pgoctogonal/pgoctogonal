@@ -2,11 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // List of all songs
   let songs = [
     "Maranata - Ministerio Avivah",
-    "Te Agradeco - Diante do Trono",
-    "Mais Que Uma Voz - Kleber Lucas"
+    "Te Agradeco - Diante do Trono"
   ];
-
-  songs.sort()
 
   let songList = document.getElementById('songList');
   let songDisplay = document.getElementById('songDisplay');
@@ -72,4 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
     menuIcon.classList.toggle('fa-chevron-right');
     menuIcon.classList.toggle('fa-chevron-left');
   });
+
+  songList.addEventListener('click', function() {
+    console.log('menuToggle clicked');
+    sidebar.classList.toggle('hidden');
+    menuIcon.classList.toggle('fa-chevron-right');
+    menuIcon.classList.toggle('fa-chevron-left');
+  });
+
 });

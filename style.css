@@ -40,22 +40,22 @@ body {
 }
 
 #search-container {
-  margin-top: 50px;
+  margin-top: 20px;
   padding-left: 0px;
 }
 
 #search {
   width: 100%;
   height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 #songDisplay {
-    margin-top: 35px;
+    margin-top: 0px;
     flex: 3;
     overflow: auto;
     height: 100vh;
-    padding-left: 1em;
+    padding-left: 2em;
 }
 
 .song {
@@ -67,53 +67,46 @@ body {
     font-weight: bold;
 }
 
-.line {
-  display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  margin-bottom: 0.5em;
-}
-
-.word {
-  display: flex;
-  align-items: flex-end;
-}
-
-.no-space {
-  margin-right: 0;
-}
-
-.chord-letter {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-right: 0.33em;
-}
-
-.chord {
-  color: #f70;
-  font-style: italic;
+.song-title {
+  font-size: 1.2em; 
+  margin-bottom: 0.3em;
   font-weight: bold;
-  font-size: 1em;
 }
 
-.word-part {
-  margin-left: 0em;
-  white-space: nowrap;
-  margin-right: 0.33em;
-  display: flex;
-  align-items: flex-start;
+.song-author {
+  font-size: 1.1em; 
+  margin-bottom: 1em;
 }
 
-.word-with-chord-beginning .chord {
-  margin-right: 0;
+.stanza {
+  margin-top: 1.3em;
 }
 
-.word-with-chord-middle .chord {
-  margin-right: 0em;
-  margin-left: 0em;
+.stanza .line {
+  margin-bottom: 0.3em;
 }
 
-.inter-stanza {
-  margin-bottom: 2em;
+#sidebar p{
+  margin-top: 10px;
+  margin-left: 45px
+}
+
+/* Increase size for small screens */
+@media (max-width: 600px) {
+  body {
+    font-size: 24px;
+  }
+
+  #sidebar {
+    width: 300px;
+    font-size: 24px;
+  }
+
+  .song-title {
+    font-size: 1.4em;
+  }
+
+  .song-author {
+    font-size: 1.3em;
+  }
 }
