@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // List of all songs
   let songs = [
     "Maranata - Ministerio Avivah",
-    "Te Agradeco - Diante do Trono"
+    "Te Agradeco - Diante do Trono",
+    "Nao Ha Um Nome Igual - Ministerio Avivah"
   ];
 
   let songList = document.getElementById('songList');
@@ -75,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     sidebar.classList.toggle('hidden');
     menuIcon.classList.toggle('fa-chevron-right');
     menuIcon.classList.toggle('fa-chevron-left');
+    songDisplay.scrollTop = 0;
   });
 
 });
