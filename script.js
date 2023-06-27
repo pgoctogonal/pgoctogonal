@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     "Nao Ha Um Nome Igual - Ministerio Avivah"
   ];
 
+  songs.sort()
+
   let songList = document.getElementById('songList');
   let songDisplay = document.getElementById('songDisplay');
   let search = document.getElementById('search');
