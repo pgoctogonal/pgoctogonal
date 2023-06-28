@@ -79,10 +79,4 @@ document.addEventListener('DOMContentLoaded', function() {
     songDisplay.scrollTop = 0;
   });
 
-  songDisplay.addEventListener('click', function() {
-    sidebar.classList.toggle('hidden');
-    menuIcon.classList.toggle('fa-chevron-right');
-    menuIcon.classList.toggle('fa-chevron-left');
-  });
-
 });
