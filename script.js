@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "Te Agradeco - Diante do Trono",
     "Nao Ha Um Nome Igual - Ministerio Avivah",
     "Filho de Deus - Projeto Sola",
-    "Redencao - Projeto Sola.html"
+    "Redencao - Projeto Sola"
   ];
   songs.sort()
 
