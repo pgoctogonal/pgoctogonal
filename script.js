@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
   let songs = [
     "Maranata - Ministerio Avivah",
     "Te Agradeco - Diante do Trono",
-    "Nao Ha Um Nome Igual - Ministerio Avivah"
+    "Nao Ha Um Nome Igual - Ministerio Avivah",
+    "Filho de Deus - Projeto Sola"
   ];
   songs.sort()
 
