@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     "Te Agradeco - Diante do Trono",
     "Nao Ha Um Nome Igual - Ministerio Avivah"
   ];
-
   songs.sort()
 
   let songList = document.getElementById('songList');
@@ -67,18 +66,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuIcon = document.getElementById('menu-icon');
 
   menuToggle.addEventListener('click', function() {
-    console.log('menuToggle clicked');
     sidebar.classList.toggle('hidden');
     menuIcon.classList.toggle('fa-chevron-right');
     menuIcon.classList.toggle('fa-chevron-left');
   });
 
   songList.addEventListener('click', function() {
-    console.log('menuToggle clicked');
     sidebar.classList.toggle('hidden');
     menuIcon.classList.toggle('fa-chevron-right');
     menuIcon.classList.toggle('fa-chevron-left');
     songDisplay.scrollTop = 0;
+  });
+
+  songDisplay.addEventListener('click', function() {
+    sidebar.classList.toggle('hidden');
+    menuIcon.classList.toggle('fa-chevron-right');
+    menuIcon.classList.toggle('fa-chevron-left');
   });
 
 });
